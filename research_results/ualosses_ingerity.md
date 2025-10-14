@@ -70,6 +70,6 @@ So, 63.1% of all rows are duplicates, which is a lot. With some of the entries b
 
 This raises huge concerns about the integrity and validity of the data.
 
-The scripts for checking duplicates can be found here: [expl_an.ipynb](../data/Soldiers_deaths/scripts/expl_an.ipynb)
+The scripts for checking duplicates can be found here: [expl_an.ipynb](../data/soldiers_deaths/scripts/expl_an.ipynb)
 
 The scripts for scraping can be found here: [ualosses_scraper.py](../scripts/ualosses_scraper.py) and [ualosses_get_urls.py](../scripts/ualosses_get_urls.py)
