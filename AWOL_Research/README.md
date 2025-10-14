@@ -28,13 +28,14 @@ The highlights of the project are:
    - [LiveUaMap](https://liveuamap.com/) (WiP, data about violent events: shellings, combats etc.)
 3. Interesting aproximation design of geospatial data of AWOL cases (WiP, more can be found [here](research_results/court_aproximation_design.md))
 4. Research design and analysis. (WiP, more can be found [here](research_results/research_design.md))
+5. Question-Answering system over court decisions to extract information about each case, can be found in court_qa folder.
 
 ## Repository Structure
 
 ```text
 AWOL_Research/
 ├── court_qa/                 # Notebooks and scripts for question-answer data preparation
-├── data/                     # Local storage for intermediate & raw datasets (kept private)
+├── data/                     # Local storage for intermediate & raw datasets (kept private, not in repo)
 │   ├── Soldiers_deaths/      # CSV/JSON exports and duplicate analysis for soldier casualties
 │   ├── awol_court/           # Output of court scraping tools
 │   ├── kmz/                  # KMZ file analysis notebooks
