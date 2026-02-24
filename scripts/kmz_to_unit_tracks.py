@@ -1,38 +1,5 @@
 #!/usr/bin/env python3
-"""
-KMZ → Daily unit tracks → Weekly unit–hex weights (w_{uht})  — v3.1 (points + lines + polygons + overlays diag)
 
-What’s new in v3.1 (since v3)
------------------------------
-- **Name filtering controls**: `--accept-all` to keep *all* features (for frontline/control), or `--name-filter` (regex) to whitelist names. If neither is set, the old `is_unit_like()` heuristic is used.
-- **Overlay-aware diagnostics**: `--diag` now prints counts of **GroundOverlay** and **NetworkLink** tags by parsing raw KML XML, plus the KML entry path used inside each KMZ.
-- **Better logging**: logs when a file has *no vector geometries* or when features were skipped due to name filtering.
-- Still: recursive KMZ discovery, robust KML walking across fastkml versions, date parsed from full path, lines/polygons support.
-
-Outputs (unchanged)
--------------------
-- data_work/units_raw.parquet              # one row per kept feature×h3 (for points/lines/polygons)
-- data_out/unit_tracks_daily.parquet       # unit×date×h3 with daily weights `w_day`
-- data_out/weights_u_h_t.parquet           # unit×week×h3 with weekly weights `w` (sum=1 per unit×week)
-- data_out/unit_tracks_qc.csv              # speed/jump anomalies (centroided)
-
-Usage examples
---------------
-# 1) Frontline/control harvest (keep everything, prefer lines)
-python kmz_to_unit_tracks_v3.py \
-  --in AWOL_Research/data/kmz/UAControlMapBackups-master \
-  --weeks AWOL_Research/data/spine/weeks.parquet \
-  --h3res 5 \
-  --geom auto \
-  --accept-all \
-  --stepkm 5 \
-  --out AWOL_Research/data/spine \
-  --work AWOL_Research/data/spine \
-  --diag
-
-# 2) Keep only features whose names match a regex (e.g., brigades)
-python kmz_to_unit_tracks_v3.py ... --name-filter "(ОМБР|БРИГАД)"
-"""
 from __future__ import annotations
 import argparse
 import os
